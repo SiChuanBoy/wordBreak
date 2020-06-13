@@ -11,7 +11,8 @@ public interface IBreakWord {
 
     /**
      * Split a string into a sentence by dictionary
-     * @param source string
+     *
+     * @param source     string
      * @param dictionary dictionary
      * @return List<String><br/> list of sentence
      */

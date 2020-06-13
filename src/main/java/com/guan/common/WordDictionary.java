@@ -5,25 +5,28 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
+ * Singleton of dictionary
+ *
  * @author Tiangang.Guan
- *  Singleton of dictionary
  */
 public class WordDictionary {
     /**
      * default dictionary
      */
     private static final Set<String> DEFAULT_DICT = new HashSet<>(
-        Arrays.asList("i", "like", "sam", "sung", "samsung", "mobile", "ice", "cream", "and", "man", "go")
+            Arrays.asList("i", "like", "sam", "sung", "samsung", "mobile", "ice", "cream", "and", "man", "go")
     );
     private static final WordDictionary instance = new WordDictionary();
-    private WordDictionary() {}
+
+    private WordDictionary() {
+    }
 
     public static WordDictionary getInstance() {
         return instance;
     }
 
     /**
-     *  get the default dictionary
+     * get the default dictionary
      *
      * @return default dictionary
      */

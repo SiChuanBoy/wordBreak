@@ -71,7 +71,7 @@ public class BreakWordUtil {
      *  add extra dictionary to customized dictionary
      * @param defaultDict default dictionary
      * @param customizedDict customized dictionary
-     * @return
+     * @return the last dictionary list
      */
     public static Set<String> addWord(Set<String> defaultDict, @NotNull Collection<String> customizedDict) {
         if (customizedDict.isEmpty()) {
