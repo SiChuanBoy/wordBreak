@@ -1,5 +1,6 @@
 # wordBreak
 ===========================TEST SUBJECT=====================================
+
 Given a valid sentence without any spaces between the words and a dictionary of valid
 English words, find all possible ways to break the sentence in individual dictionary words.
 Example:
@@ -20,4 +21,5 @@ If user provide a customized dictionary of valid English words as additional inp
 program will find all the valid words in the both dictionaries
 E.g.: the user customized dictionary
 { i, like, sam, sung, mobile, icecream, man go, mango}
+
 =============================THE END================================================
