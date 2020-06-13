@@ -18,13 +18,13 @@ import static org.junit.Assert.assertTrue;
  */
 public class BreakWordTest{
 
-    //default input
+    //default input 1
     public final static String DEFAULT_SENTENCE_INPUT = "ilikesamsungmobile";
     //Possible result
     public final static String DEFAULT_SENTENCE_RESULT_I = "i like sam sung mobile";
     public final static String DEFAULT_SENTENCE_RESULT_II = "i like samsung mobile";
 
-    //default input
+    //default input 2
     public final static String DEFAULT_SENTENCE_INPUT_I = "ilikeicecreamandmango";
     public final static String DEFAULT_SENTENCE_OUT = "i like ice cream and man go";
 
@@ -32,7 +32,7 @@ public class BreakWordTest{
      * test the default dictionary
      */
     @Test
-    public void tetDefaultSentence(){
+    public void tetDefaultSentence() {
         System.out.println("===start test the first default string===");
         IBreakWord breakWord = BreakWordUtil.createBreakWord(OperateType.DEFAULT);
         //get default the first string
@@ -42,8 +42,11 @@ public class BreakWordTest{
         strings.forEach(System.out::println);
     }
 
+    /**
+     * test the second string that default
+     */
     @Test
-    public void tetDefaultSentenceExtra(){
+    public void tetDefaultSentenceExtra() {
         IBreakWord breakWord = BreakWordUtil.createBreakWord(OperateType.DEFAULT);
         System.out.println("===start test the second default string===");
         //get default the second string
@@ -53,28 +56,34 @@ public class BreakWordTest{
         strings.forEach(System.out::println);
     }
 
-
+    /**
+     * test customize dictionary and customize string
+     */
     @Test
     public void testCustomizeSentence() {
         System.out.println("===start test the customize dictionary and customize string===");
         IBreakWord breakWord = BreakWordUtil.createBreakWord(OperateType.CUSTOMIZE);
         Set<String> customizeDictionary = new HashSet<>(
-            Arrays.asList("i", "like", "sam", "sung", "mobile", "icecream", "man go", "mango", "and","apple","huawei"));
+                Arrays.asList("i", "like", "sam", "sung", "mobile", "icecream", "man go", "mango", "and", "apple", "huawei"));
         String string = "ilikemangoandapple";
+        //Possible result
         String result = "i like mango and apple";
         List<String> list = breakWord.breakWords(string, customizeDictionary);
         assertEquals(1, list.size());
-        assertEquals(result,list.get(0));
+        assertEquals(result, list.get(0));
         list.forEach(System.out::println);
     }
 
 
+    /**
+     * test the double dictionary(customize dictionary and default dictionary)
+     */
     @Test
     public void testMergeSentence() {
         System.out.println("===start test the merge customize dictionary and default dictionary===");
         IBreakWord breakWord = BreakWordUtil.createBreakWord(OperateType.MERGE);
         Set<String> customizeDictionary = new HashSet<>(
-                Arrays.asList("apple","huawei","phone","is"));
+                Arrays.asList("apple", "huawei", "phone", "is"));
         String customizeString = "appleandhuaweiisphoneilike";
         String result = "apple and huawei is phone i like";
         List<String> list = breakWord.breakWords(customizeString, customizeDictionary);
