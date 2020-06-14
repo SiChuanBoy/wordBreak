@@ -21,7 +21,7 @@ public class DictionaryTest {
         WordDictionary wordDictionary = WordDictionary.getInstance();
         Set<String> dict = wordDictionary.getDefaultDictionary();
         Assert.assertTrue(dict.contains("cream"));
-        Assert.assertEquals(13, dict.size());
+        Assert.assertEquals(11, dict.size());
         System.out.println(dict.toString());
     }
 
