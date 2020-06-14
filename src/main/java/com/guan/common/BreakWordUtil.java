@@ -5,9 +5,9 @@ import com.guan.impl.CustomizeBreakWordImpl;
 import com.guan.impl.DefaultBreakWordImpl;
 import com.guan.impl.MergeBreakWordImpl;
 import com.guan.type.OperateType;
-import com.sun.istack.internal.NotNull;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -68,17 +68,19 @@ public class BreakWordUtil {
 
 
     /**
-     *  add extra dictionary to customized dictionary
-     * @param defaultDict default dictionary
+     * add extra dictionary to customized dictionary
+     *
+     * @param defaultDict    default dictionary
      * @param customizedDict customized dictionary
      * @return the last dictionary list
      */
-    public static Set<String> addWord(Set<String> defaultDict, @NotNull Collection<String> customizedDict) {
-        if (customizedDict.isEmpty()) {
+    public static Set<String> addWord(Set<String> defaultDict, Collection<String> customizedDict) {
+        if (null == customizedDict || customizedDict.isEmpty()) {
             throw new IllegalArgumentException("Cannot add this collection to set,it's null or empty!");
         }
-        customizedDict.removeIf(test -> test.equals(""));
-        defaultDict.addAll(customizedDict);
-        return defaultDict;
+        Set<String> last = new HashSet<>(defaultDict);
+        last.removeIf(test -> test.equals(""));
+        last.addAll(customizedDict);
+        return last;
     }
 }

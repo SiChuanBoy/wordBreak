@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -21,6 +22,7 @@ public class DictionaryTest {
         WordDictionary wordDictionary = WordDictionary.getInstance();
         Set<String> dict = wordDictionary.getDefaultDictionary();
         Assert.assertTrue(dict.contains("cream"));
+        System.out.println(dict.size());
         Assert.assertEquals(11, dict.size());
         System.out.println(dict.toString());
     }
